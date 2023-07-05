@@ -452,10 +452,13 @@
           <div class="col-sm-6">
             <div class="form-floating">
               <input
-                type="text"
-                class="form-control"
-                id="name"
-                placeholder="Your Name"
+              type="text"
+              name="Name"
+              id="name"
+              class="form-control"
+              placeholder="Nama anda"
+              value=""
+              required=""
               />
               <label for="name">Nama Anda</label>
             </div>
@@ -463,10 +466,13 @@
           <div class="col-sm-6">
             <div class="form-floating">
               <input
-                type="email"
-                class="form-control"
-                id="mail"
-                placeholder="Your Email"
+              type="text"
+              name="Email"
+              id="email"
+              class="form-control"
+              placeholder="Your Email"
+              value=""
+              required=""
               />
               <label for="mail">Email Anda(Opsional)</label>
             </div>
@@ -474,10 +480,13 @@
           <div class="col-sm-6">
             <div class="form-floating">
               <input
-                type="text"
-                class="form-control"
-                id="mobile"
-                placeholder="Your Mobile"
+              type="number"
+              name="Phone"
+              id="phone"
+              class="form-control"
+              placeholder="Your Contact Number"
+              value=""
+              required=""
               />
               <label for="mobile">Nomor Handphone Anda</label>
             </div>
@@ -485,12 +494,12 @@
           <div class="col-sm-6">
             <div class="form-floating">
               <select class="form-select" id="service">
-                <option selected>Creta</option>
-                <option value="">Ioniq 5</option>
-                <option value="">Stargazer</option>
-                <option value="">Staria</option>
-                <option value="">Palisade</option>
-                <option value="">Santa Fe</option>
+                <option>Creta</option>
+                <option>Ioniq 5</option>
+                <option>Stargazer</option>
+                <option>Staria</option>
+                <option>Palisade</option>
+                <option>Santa Fe</option>
               </select>
               <label for="service">Mobil yang anda inginkan</label>
             </div>
@@ -498,16 +507,20 @@
           <div class="col-12">
             <div class="form-floating">
               <textarea
-                class="form-control"
-                placeholder="Leave a message here"
-                id="message"
+              type="text"
+              name="Message"
+              id="message"
+              class="form-control"
+              placeholder="Pesan anda"
+              value=""
+              required=""
                 style="height: 130px"
               ></textarea>
               <label for="message">Pesan anda</label>
             </div>
           </div>
           <div class="col-12 text-center">
-            <button class="btn btn-primary w-100 py-3" type="submit">
+            <button class="btn btn-primary w-100 py-3" type="submit" onclick="gotowhatsapp()" name="submit">
               Booking Test Drive
             </button>
           </div>
@@ -516,6 +529,31 @@
     </div>
   </div>
 </div>
+<span
+          onclick="gotowhatsapp()"
+          href="https://wa.me/6282114189797?text=Hi%20There!"
+          class="float"
+          style="
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            bottom: 70px;
+            right: 120px;
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 2px 2px 3px #999;
+          "
+        >
+          <img
+            src="https://trickuweb.com/whatsapp.png"
+            alt=""
+            height="60px"
+            width="60px"
+          />
+        </span>
+
 <!-- Booking Test Drive selesai -->
     <!-- Contact end -->
     <!-- Garansi Start -->
@@ -665,8 +703,35 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+      function gotowhatsapp() {
+        var name = document.getElementById("name").value;
+        var phone = document.getElementById("phone").value;
+        var email = document.getElementById("email").value;
+        var service = document.getElementById("service").value;
+var message = document.getElementById("message").value;
+        var url =
+          "https://wa.me/6282114189797?text=" +
+          "Name: " +
+          name +
+          "%0a" +
+          "Phone: " +
+          phone +
+          "%0a" +
+          "Email: " +
+          email +
+          "%0a" +
+          "Service: " +
+          service +
+          "%0a" +
+          "Message: "+
+          message;
+
+        window.open(url, "_blank").focus();
+      }
+    </script>
   </body>
 </html>
